@@ -1,0 +1,36 @@
+@use "./vars.scss" as *;
+.services {
+  background-color: #dddddd1f;
+  @include headStyle;
+  .service {
+    background-color: #fff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 50px 30px !important;
+    border-radius: 10px;
+    @media (min-width: 991px) {
+      min-height: 360px;
+      padding: 30px 30px !important;
+    }
+    .img {
+      background-color: #c7c5c51f;
+      width: 90px;
+      height: 90px;
+      margin: auto;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 90px;
+      img {
+        width: 50px !important;
+      }
+    }
+    .text {
+      h4 {
+        font-size: 17px;
+        font-weight: 700;
+      }
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+}

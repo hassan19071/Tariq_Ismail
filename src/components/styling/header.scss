@@ -1,0 +1,207 @@
+@use "./vars.scss" as *;
+
+.header {
+  background-color: rgb(224, 209, 166);
+  background-image: url("../../imgs/background.jpg");
+  background-size: cover;
+  background-position: center;
+  .logo {
+    img {
+      width: calc(3rem + 1vw);
+    }
+  }
+  .navbar-container {
+    padding: 0px 0;
+    position: relative;
+    &.fixed-navbar {
+      visibility: hidden;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      width: 100%;
+      opacity: 0;
+      max-height: 0;
+      transition: 0.4s;
+      overflow-y: hidden;
+      background-color: #212212;
+      background-image: url("../../imgs/background.jpg");
+      background-size: cover;
+      background-position: center;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+      &.active {
+        visibility: visible;
+        opacity: 1;
+        max-height: 200px;
+      }
+    }
+    .logo {
+      font-size: 50px;
+    }
+    .lg-links {
+      a {
+        color: $secondColor;
+        font-size: 17px;
+        font-weight: 600;
+        transition: 0.3s;
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          height: 2px;
+          width: 0%;
+          background-color: $secondColor;
+          transition: 0.3s;
+        }
+        &:hover {
+          &::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+    .menu {
+      width: 40px;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      &.active span:nth-child(1) {
+        transform: rotate(45deg) translate(9px, 9px);
+      }
+
+      &.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      &.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(9px, -9px);
+      }
+      span {
+        width: 80%;
+        height: 2px;
+        background-color: $secondColor;
+        margin-left: auto;
+        transition: transform 0.3s, opacity 0.3s;
+        &:nth-child(2) {
+          width: 100%;
+          margin: 10px 0;
+        }
+      }
+    }
+    .mobile-links {
+      position: absolute;
+      top: 100%;
+      background-color: #fff;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      width: 90%;
+      transform: translateX(5%);
+      padding: 20px;
+      z-index: 10;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: 0.4s;
+      &.second {
+        position: fixed !important;
+        top: 95px;
+      }
+      &.active {
+        max-height: 300px;
+        opacity: 1;
+      }
+      a {
+        margin-top: 20px;
+        display: inline-block;
+        color: $secondColor;
+        font-size: 17px;
+        font-weight: 600;
+        transition: 0.3s;
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          height: 2px;
+          width: 0%;
+          background-color: $secondColor;
+          transition: 0.3s;
+        }
+        &:hover {
+          &::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  .hero-section {
+    .text {
+      h3 {
+        font-size: 20px;
+        font-weight: 600;
+        color: $secondColor;
+        span {
+          text-shadow: -1px -1px 0 $mainColor, 1px -1px 0 $mainColor,
+            -1px 1px 0 $mainColor, 1px 1px 0 $mainColor;
+          font-size: 30px;
+        }
+      }
+      h1 {
+        font-size: calc(2rem + 1vw);
+        font-weight: 700;
+        color: $secondColor;
+        text-transform: uppercase;
+        margin: 10px 0 20px;
+      }
+      p {
+        color: #212212;
+        font-size: 17px;
+      }
+      .btns {
+        display: flex;
+        align-items: center;
+        .cv {
+          padding: 8px 30px;
+          background-color: $mainColor;
+          color: #fff;
+          border-radius: 25px;
+          font-weight: 600;
+          transition: 0.3s;
+          &:hover {
+            background-color: $secondColor;
+          }
+        }
+        .social {
+          font-size: 16px;
+          color: #fff;
+          transition: 0.3s;
+          background-color: $secondColor;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          text-align: center;
+          line-height: 40px;
+          &:hover {
+            background-color: $mainColor;
+          }
+        }
+      }
+    }
+    .decoration {
+      bottom: 0;
+      z-index: 0;
+      img {
+        width: calc(5rem + 2vw);
+      }
+      &.second {
+        top: 0;
+        right: 0px;
+        img {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}

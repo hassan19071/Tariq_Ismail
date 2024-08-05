@@ -1,0 +1,26 @@
+$mainColor: #0080be;
+$secondColor: #1f1817;
+
+// styling for head title
+@mixin headStyle {
+  .head-title {
+    h1 {
+      font-size: calc(1.5rem + 0.8vw);
+      font-weight: 700;
+      margin: auto;
+      background-image: url("../../imgs/title-bg.png");
+      background-size: contain;
+      color: $secondColor;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+    p {
+      width: 50%;
+      margin: 15px auto;
+      font-size: 17px;
+      @media (max-width: 991px) {
+        width: 70%;
+      }
+    }
+  }
+}

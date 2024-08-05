@@ -1,0 +1,33 @@
+@use "./vars.scss" as *;
+
+.resume {
+  @include headStyle;
+  .head-title {
+    h1 {
+      margin: 0 auto 0px 0 !important;
+    }
+  }
+  .level {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 20px 30px;
+    border-radius: 20px;
+    .text {
+      h4 {
+        font-size: 19px;
+        font-weight: 800;
+        color: $mainColor;
+      }
+      h3 {
+        font-size: 20px;
+        font-weight: 800;
+        color: $secondColor;
+        margin-bottom: 8px !important;
+      }
+      h5 {
+        font-size: 17px;
+        font-weight: 500;
+        color: #333131;
+      }
+    }
+  }
+}

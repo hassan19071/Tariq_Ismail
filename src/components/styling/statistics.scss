@@ -1,0 +1,16 @@
+@use "./vars.scss" as *;
+
+.statistics {
+  background-color: #ffffff;
+  .statistic {
+    h1 {
+      font-size: calc(2rem + 2vw);
+      color: $mainColor;
+      font-weight: 700;
+    }
+    div {
+      color: $secondColor;
+      font-weight: 700;
+    }
+  }
+}

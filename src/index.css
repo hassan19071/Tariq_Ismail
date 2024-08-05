@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap");
+body {
+  font-family: "Cairo", sans-serif !important;
+  overflow-x: hidden;
+  height: 4000px;
+}
+
+a {
+  text-decoration: none !important;
+}
