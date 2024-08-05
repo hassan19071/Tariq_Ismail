@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import personalImg from "../imgs/tariq.png";
 import "./styling/header.scss";
-import LazyLoad from "react-lazyload";
 import logo from "../imgs/logo.png";
 import heroBg2 from "../imgs/hero-bg2.svg";
 
@@ -218,9 +217,7 @@ const Header = () => {
             </div>
             <div className="col-lg-6 order-lg-2 order-1 mb-lg-0 mb-4 position-relative">
               <div className="tariq-img text-center">
-                <LazyLoad height={300} offset={100}>
                   <img src={personalImg} alt="Tariq Ismail" width={"100%"} />
-                </LazyLoad>
               </div>
               <div className="decoration position-absolute">
                 <img src={heroBg2} alt="hero bg" />
