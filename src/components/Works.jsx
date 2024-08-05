@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { works } from "../data/DataJson";
 import "./styling/works.scss";
+import ScrollAnimation from "react-animate-on-scroll";
+import "animate.css/animate.compat.css";
 
 const Works = () => {
   const [activeType, setActiveType] = useState("logo");
@@ -39,53 +41,57 @@ const Works = () => {
   return (
     <div className="works py-5">
       <div className="container py-lg-5 py-2">
-        <div className="head-title">
-          <h1>Works</h1>
-        </div>
-        <div className="mt-3 mb-5 types d-flex justify-content-center flex-wrap">
-          <span
-            className={activeType === "logo" ? "active" : ""}
-            onClick={() => changeActiveType("logo")}
-          >
-            Logo
-          </span>
-          <span
-            className={activeType === "brand identity" ? "active" : ""}
-            onClick={() => changeActiveType("brand identity")}
-          >
-            Brand Identity
-          </span>
-          <span
-            className={activeType === "illustration" ? "active" : ""}
-            onClick={() => changeActiveType("illustration")}
-          >
-            Illustration
-          </span>
-          <span
-            className={activeType === "poster" ? "active" : ""}
-            onClick={() => changeActiveType("poster")}
-          >
-            Poster
-          </span>
-          <span
-            className={activeType === "social post" ? "active" : ""}
-            onClick={() => changeActiveType("social post")}
-          >
-            Social Post
-          </span>
-          <span
-            className={activeType === "brochure" ? "active" : ""}
-            onClick={() => changeActiveType("brochure")}
-          >
-            Brochure
-          </span>
-          <span
-            className={activeType === "presentation" ? "active" : ""}
-            onClick={() => changeActiveType("presentation")}
-          >
-            Presentation
-          </span>
-        </div>
+        <ScrollAnimation animateOnce={true} animateIn="fadeInUp">
+          <div className="head-title">
+            <h1>Works</h1>
+          </div>
+        </ScrollAnimation>
+        <ScrollAnimation animateOnce={true} animateIn="fadeInUp">
+          <div className="mt-3 mb-5 types d-flex justify-content-center flex-wrap">
+            <span
+              className={activeType === "logo" ? "active" : ""}
+              onClick={() => changeActiveType("logo")}
+            >
+              Logo
+            </span>
+            <span
+              className={activeType === "brand identity" ? "active" : ""}
+              onClick={() => changeActiveType("brand identity")}
+            >
+              Brand Identity
+            </span>
+            <span
+              className={activeType === "illustration" ? "active" : ""}
+              onClick={() => changeActiveType("illustration")}
+            >
+              Illustration
+            </span>
+            <span
+              className={activeType === "poster" ? "active" : ""}
+              onClick={() => changeActiveType("poster")}
+            >
+              Poster
+            </span>
+            <span
+              className={activeType === "social post" ? "active" : ""}
+              onClick={() => changeActiveType("social post")}
+            >
+              Social Post
+            </span>
+            <span
+              className={activeType === "brochure" ? "active" : ""}
+              onClick={() => changeActiveType("brochure")}
+            >
+              Brochure
+            </span>
+            <span
+              className={activeType === "presentation" ? "active" : ""}
+              onClick={() => changeActiveType("presentation")}
+            >
+              Presentation
+            </span>
+          </div>
+        </ScrollAnimation>
         {loading ? (
           <div className="loading mt-4">Loading....</div>
         ) : (
@@ -99,12 +105,14 @@ const Works = () => {
                 }
                 key={work.id}
               >
-                <div
-                  className={`img ${activeType === "logo" ? "logo" : ""}`}
-                  onClick={() => openOverlay(work.img)}
-                >
-                  <img src={work.img} alt={work.type} />
-                </div>
+                <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
+                  <div
+                    className={`img ${activeType === "logo" ? "logo" : ""}`}
+                    onClick={() => openOverlay(work.img)}
+                  >
+                    <img src={work.img} alt={work.type} />
+                  </div>
+                </ScrollAnimation>
               </div>
             ))}
           </div>

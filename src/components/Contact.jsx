@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./styling/contact.scss";
 import { Link } from "react-router-dom";
 import emailjs from "emailjs-com";
+import ScrollAnimation from "react-animate-on-scroll";
+import "animate.css/animate.compat.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -39,99 +41,105 @@ const Contact = () => {
   return (
     <div className="contact py-5">
       <div className="container py-lg-4 py-1">
-        <div className="head-title">
-          <h1>Get in Touch</h1>
-        </div>
+        <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
+          <div className="head-title">
+            <h1>Get in Touch</h1>
+          </div>
+        </ScrollAnimation>
         <div className="row mt-5">
           <div className="col-lg-7 pe-lg-4">
-            <div className="contact-form">
-              <h4>Let's Work Together!</h4>
-              <form onSubmit={handleSubmit}>
-                <div className="row">
-                  <div className="col-12 mt-2">
-                    <input
-                      type="text"
-                      placeholder="Your Name"
-                      className="w-100"
-                      name="name"
-                      onChange={handleChange}
-                      value={formData.name}
-                    />
+            <ScrollAnimation animateIn="fadeInLeft" animateOnce={true}>
+              <div className="contact-form">
+                <h4>Let's Work Together!</h4>
+                <form onSubmit={handleSubmit}>
+                  <div className="row">
+                    <div className="col-12 mt-2">
+                      <input
+                        type="text"
+                        placeholder="Your Name"
+                        className="w-100"
+                        name="name"
+                        onChange={handleChange}
+                        value={formData.name}
+                      />
+                    </div>
+                    <div className="col-12 mt-4">
+                      <input
+                        type="email"
+                        placeholder="Your Email"
+                        className="w-100"
+                        name="email"
+                        onChange={handleChange}
+                        value={formData.email}
+                      />
+                    </div>
+                    <div className="col-12 mt-4">
+                      <input
+                        type="text"
+                        placeholder="Your Phone Number"
+                        className="w-100"
+                        name="phone"
+                        onChange={handleChange}
+                        value={formData.phone}
+                      />
+                    </div>
+                    <div className="col-12 mt-4">
+                      <textarea
+                        type="text"
+                        placeholder="Your Message"
+                        className="w-100"
+                        rows={10}
+                        required
+                        name="message"
+                        onChange={handleChange}
+                        value={formData.message}
+                      ></textarea>
+                    </div>
+                    <div className="col-12 mt-4 text-end">
+                      <button type="submit">Send</button>
+                    </div>
                   </div>
-                  <div className="col-12 mt-4">
-                    <input
-                      type="email"
-                      placeholder="Your Email"
-                      className="w-100"
-                      name="email"
-                      onChange={handleChange}
-                      value={formData.email}
-                    />
-                  </div>
-                  <div className="col-12 mt-4">
-                    <input
-                      type="text"
-                      placeholder="Your Phone Number"
-                      className="w-100"
-                      name="phone"
-                      onChange={handleChange}
-                      value={formData.phone}
-                    />
-                  </div>
-                  <div className="col-12 mt-4">
-                    <textarea
-                      type="text"
-                      placeholder="Your Message"
-                      className="w-100"
-                      rows={10}
-                      required
-                      name="message"
-                      onChange={handleChange}
-                      value={formData.message}
-                    ></textarea>
-                  </div>
-                  <div className="col-12 mt-4 text-end">
-                    <button type="submit">Send</button>
-                  </div>
-                </div>
-              </form>
-            </div>
+                </form>
+              </div>
+            </ScrollAnimation>
           </div>
           <div className="col-lg-5 ps-lg-5 mt-lg-0 mt-4">
-            <div className="contact-details">
-              <h4>Contact Details</h4>
-              <div className="details">
-                <div className="email d-flex align-items-center">
-                  <div className="icon">
-                    <i className="fa-solid fa-envelope"></i>
+            <ScrollAnimation animateIn="fadeInRight" animateOnce={true}>
+              <div className="contact-details">
+                <h4>Contact Details</h4>
+                <div className="details">
+                  <div className="email d-flex align-items-center">
+                    <div className="icon">
+                      <i className="fa-solid fa-envelope"></i>
+                    </div>
+                    <div className="text ms-3">
+                      <h6 className="mb-1">Email</h6>
+                      <Link to="mailto:vfx.tarek@gmail.com">
+                        vfx.tarek@gmail.com
+                      </Link>
+                    </div>
                   </div>
-                  <div className="text ms-3">
-                    <h6 className="mb-1">Email</h6>
-                    <Link to="mailto:vfx.tarek@gmail.com">
-                      vfx.tarek@gmail.com
-                    </Link>
+                  <div className="phone my-4 d-flex align-items-center">
+                    <div className="icon">
+                      <i className="fa-solid fa-phone"></i>
+                    </div>
+                    <div className="text ms-3">
+                      <h6 className="mb-1">Phone Number</h6>
+                      <Link to="tel:+966557641755">+966557641755</Link>
+                    </div>
                   </div>
-                </div>
-                <div className="phone my-4 d-flex align-items-center">
-                  <div className="icon">
-                    <i className="fa-solid fa-phone"></i>
-                  </div>
-                  <div className="text ms-3">
-                    <h6 className="mb-1">Phone Number</h6>
-                    <Link to="tel:+966557641755">+966557641755</Link>
-                  </div>
-                </div>
-                <div className="address d-flex align-items-center">
-                  <div className="icon">
-                    <i className="fa-solid fa-location-dot"></i>
-                  </div>
-                  <div className="text ms-3">
-                    <h6 className="mb-1">Address</h6>
-                    <span>KSA / Riyadh</span>
+                  <div className="address d-flex align-items-center">
+                    <div className="icon">
+                      <i className="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div className="text ms-3">
+                      <h6 className="mb-1">Address</h6>
+                      <span>KSA / Riyadh</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </ScrollAnimation>
           </div>
         </div>
       </div>

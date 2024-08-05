@@ -5,8 +5,6 @@ import "./styling/header.scss";
 import LazyLoad from "react-lazyload";
 import logo from "../imgs/logo.png";
 import heroBg2 from "../imgs/hero-bg2.svg";
-import "animate.css/animate.compat.css";
-import ScrollAnimation from 'react-animate-on-scroll';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +15,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 500) {
+      if (window.scrollY > 400) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
@@ -195,7 +193,6 @@ const Header = () => {
         <div className="container py-4">
           <div className="row align-items-center">
             <div className="col-lg-6 order-lg-1 order-2">
-              <ScrollAnimation animateIn="fadeInLeft" animatePreScroll={true}>
               <div className="text">
                 <h3>
                   I'm <span>Tariq Ismail</span>
@@ -218,7 +215,6 @@ const Header = () => {
                   </Link>
                 </div>
               </div>
-              </ScrollAnimation>
             </div>
             <div className="col-lg-6 order-lg-2 order-1 mb-lg-0 mb-4 position-relative">
               <div className="tariq-img text-center">
