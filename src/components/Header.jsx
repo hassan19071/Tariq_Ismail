@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useScroll } from "./ScrollContext";
 import personalImg from "../imgs/tariq.png";
 import "./styling/header.scss";
 import logo from "../imgs/logo.png";
@@ -11,6 +12,7 @@ const Header = () => {
     setIsOpen(!isOpen);
   };
   const [isVisible, setIsVisible] = useState(false);
+  const { scrollToSection } = useScroll();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +28,12 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handleScrollToSection = (section) => {
+    setIsOpen(false); // Close the menu
+    scrollToSection(section); // Scroll to the section
+  };
+
   return (
     <div className="header">
       <div className="navbar-container">
@@ -42,27 +50,45 @@ const Header = () => {
               <div className="lg-links">
                 <ul className="list-unstyled d-flex mb-0 justify-content-end">
                   <li>
-                    <Link to="#" className="me-4">
+                    <Link
+                      to="#services"
+                      onClick={() => handleScrollToSection("services")}
+                      className="me-4"
+                    >
                       Services
                     </Link>
                   </li>
                   <li>
-                    <Link to="#" className="me-4">
+                    <Link
+                      to="#works"
+                      className="me-4"
+                      onClick={() => handleScrollToSection("works")}
+                    >
                       Works
                     </Link>
                   </li>
                   <li>
-                    <Link to="#" className="me-4">
+                    <Link
+                      to="#resume"
+                      className="me-4"
+                      onClick={() => handleScrollToSection("resume")}
+                    >
                       Resume
                     </Link>
                   </li>
                   <li>
-                    <Link to="#" className="me-4">
+                    <Link
+                      to="#skills"
+                      className="me-4"
+                      onClick={() => handleScrollToSection("skills")}
+                    >
                       Skills
                     </Link>
                   </li>
                   <li>
-                    <Link to="#">Contact</Link>
+                    <Link to="#contact" onClick={() => handleScrollToSection("contact")}>
+                      Contact
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -82,27 +108,45 @@ const Header = () => {
         <div className={`mobile-links d-lg-none ${isOpen ? "active" : ""}`}>
           <ul className="list-unstyled">
             <li>
-              <Link to="#" className="me-4">
+              <Link
+                to="#services"
+                onClick={() => handleScrollToSection("services")}
+                className="me-4"
+              >
                 Services
               </Link>
             </li>
             <li>
-              <Link to="#" className="me-4">
+              <Link
+                to="#works"
+                className="me-4"
+                onClick={() => handleScrollToSection("works")}
+              >
                 Works
               </Link>
             </li>
             <li>
-              <Link to="#" className="me-4">
+              <Link
+                to="#resume"
+                className="me-4"
+                onClick={() => handleScrollToSection("resume")}
+              >
                 Resume
               </Link>
             </li>
             <li>
-              <Link to="#" className="me-4">
+              <Link
+                to="#skills"
+                className="me-4"
+                onClick={() => handleScrollToSection("skills")}
+              >
                 Skills
               </Link>
             </li>
             <li>
-              <Link to="#">Contact</Link>
+              <Link to="#contact" onClick={() => handleScrollToSection("contact")}>
+                Contact
+              </Link>
             </li>
           </ul>
         </div>
@@ -121,27 +165,45 @@ const Header = () => {
               <div className="lg-links">
                 <ul className="list-unstyled d-flex mb-0 justify-content-end">
                   <li>
-                    <Link to="#" className="me-4">
+                    <Link
+                      to="/#services"
+                      onClick={() => handleScrollToSection("services")}
+                      className="me-4"
+                    >
                       Services
                     </Link>
                   </li>
                   <li>
-                    <Link to="#" className="me-4">
+                    <Link
+                      to="#works"
+                      className="me-4"
+                      onClick={() => handleScrollToSection("works")}
+                    >
                       Works
                     </Link>
                   </li>
                   <li>
-                    <Link to="#" className="me-4">
+                    <Link
+                      to="#resume"
+                      className="me-4"
+                      onClick={() => handleScrollToSection("resume")}
+                    >
                       Resume
                     </Link>
                   </li>
                   <li>
-                    <Link to="#" className="me-4">
+                    <Link
+                      to="#skills"
+                      className="me-4"
+                      onClick={() => handleScrollToSection("skills")}
+                    >
                       Skills
                     </Link>
                   </li>
                   <li>
-                    <Link to="#">Contact</Link>
+                    <Link to="#contact" onClick={() => handleScrollToSection("contact")}>
+                      Contact
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -163,27 +225,45 @@ const Header = () => {
         >
           <ul className="list-unstyled">
             <li>
-              <Link to="#" className="me-4">
+              <Link
+                to="#services"
+                onClick={() => handleScrollToSection("services")}
+                className="me-4"
+              >
                 Services
               </Link>
             </li>
             <li>
-              <Link to="#" className="me-4">
+              <Link
+                to="#works"
+                className="me-4"
+                onClick={() => handleScrollToSection("works")}
+              >
                 Works
               </Link>
             </li>
             <li>
-              <Link to="#" className="me-4">
+              <Link
+                to="#resume"
+                className="me-4"
+                onClick={() => handleScrollToSection("resume")}
+              >
                 Resume
               </Link>
             </li>
             <li>
-              <Link to="#" className="me-4">
+              <Link
+                to="#skills"
+                className="me-4"
+                onClick={() => handleScrollToSection("skills")}
+              >
                 Skills
               </Link>
             </li>
             <li>
-              <Link to="#">Contact</Link>
+              <Link to="#contact" onClick={() => handleScrollToSection("contact")}>
+                Contact
+              </Link>
             </li>
           </ul>
         </div>
@@ -217,7 +297,7 @@ const Header = () => {
             </div>
             <div className="col-lg-6 order-lg-2 order-1 mb-lg-0 mb-4 position-relative">
               <div className="tariq-img text-center">
-                  <img src={personalImg} alt="Tariq Ismail" width={"100%"} />
+                <img src={personalImg} alt="Tariq Ismail" width={"100%"} />
               </div>
               <div className="decoration position-absolute">
                 <img src={heroBg2} alt="hero bg" />

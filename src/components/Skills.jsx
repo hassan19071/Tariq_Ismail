@@ -10,10 +10,12 @@ import ae from "../imgs/ae.png";
 import "./styling/skills.scss";
 import ScrollAnimation from "react-animate-on-scroll";
 import "animate.css/animate.compat.css";
+import { useScroll } from "./ScrollContext";
 
 const Skills = () => {
+  let { skillsRef } = useScroll();
   return (
-    <div className="skills py-5">
+    <div className="skills py-5" id="skills" ref={skillsRef}>
       <div className="container">
         <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
           <div className="head-title text-center">

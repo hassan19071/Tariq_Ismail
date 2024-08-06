@@ -3,6 +3,7 @@ import { works } from "../data/DataJson";
 import "./styling/works.scss";
 import ScrollAnimation from "react-animate-on-scroll";
 import "animate.css/animate.compat.css";
+import { useScroll } from "./ScrollContext";
 
 const Works = () => {
   const [activeType, setActiveType] = useState("logo");
@@ -10,12 +11,15 @@ const Works = () => {
   const [loading, setLoading] = useState(true);
   const [overlayOpen, setOverlayOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
+  const { worksRef } = useScroll();
 
   useEffect(() => {
     setLoading(true);
     const filterWorks = works.filter((work) => work.type === activeType);
     setActiveWorks([...filterWorks]);
-    setLoading(false);
+    setTimeout(() => {
+      setLoading(false);
+    },1000)
   }, [activeType]);
 
   const changeActiveType = (type) => setActiveType(type);
@@ -39,7 +43,7 @@ const Works = () => {
   }, []);
 
   return (
-    <div className="works py-5">
+    <div className="works py-5" id="works" ref={worksRef}>
       <div className="container py-lg-5 py-2">
         <ScrollAnimation animateOnce={true} animateIn="fadeInUp">
           <div className="head-title">
@@ -92,31 +96,31 @@ const Works = () => {
             </span>
           </div>
         </ScrollAnimation>
+        <ScrollAnimation animateOnce={true} animateIn="fadeInUp">
         {loading ? (
           <div className="loading mt-4">Loading....</div>
         ) : (
-          <div className="row">
-            {activeWorks.map((work) => (
-              <div
-                className={
-                  activeType === "logo"
-                    ? "col-lg-3 col-md-4 col-6 mt-4"
-                    : "col-lg-3 col-md-6 col-12 mt-4"
-                }
-                key={work.id}
-              >
-                <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
+            <div className="row">
+              {activeWorks.map((work) => (
+                <div
+                  className={
+                    activeType === "logo"
+                      ? "col-lg-3 col-md-4 col-6 mt-4"
+                      : "col-lg-3 col-md-6 col-12 mt-4"
+                  }
+                  key={work.id}
+                >
                   <div
                     className={`img ${activeType === "logo" ? "logo" : ""}`}
                     onClick={() => openOverlay(work.img)}
                   >
                     <img src={work.img} alt={work.type} />
                   </div>
-                </ScrollAnimation>
-              </div>
-            ))}
-          </div>
+                </div>
+              ))}
+            </div>
         )}
+        </ScrollAnimation>
       </div>
 
       {overlayOpen && (

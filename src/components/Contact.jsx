@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import emailjs from "emailjs-com";
 import ScrollAnimation from "react-animate-on-scroll";
 import "animate.css/animate.compat.css";
-
+import { useScroll } from "./ScrollContext";
 const Contact = () => {
+  let { contactRef } = useScroll();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -39,7 +40,7 @@ const Contact = () => {
     e.target.reset(); // Reset the form fields after submission
   };
   return (
-    <div className="contact py-5">
+    <div className="contact py-5" id="contact" ref={contactRef}>
       <div className="container py-lg-4 py-1">
         <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
           <div className="head-title">

@@ -4,9 +4,11 @@ import experienceIcon from "../imgs/certificate.png";
 import "./styling/resume.scss";
 import ScrollAnimation from "react-animate-on-scroll";
 import "animate.css/animate.compat.css";
+import { useScroll } from "./ScrollContext";
 const Resume = () => {
+  let { resumeRef } = useScroll();
   return (
-    <div className="resume py-5">
+    <div className="resume py-5" id="resume" ref={resumeRef}>
       <div className="container py-lg-5 py-4">
         <div className="row">
           <div className="col-lg-6 pe-lg-5">

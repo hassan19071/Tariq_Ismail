@@ -8,10 +8,12 @@ import service6 from "../imgs/ui-design.png";
 import "./styling/services.scss";
 import ScrollAnimation from "react-animate-on-scroll";
 import "animate.css/animate.compat.css";
+import { useScroll } from './ScrollContext';
 
 const Services = () => {
+  const { servicesRef } = useScroll();
   return (
-    <div className="services py-5">
+    <div className="services py-5" id="services" ref={servicesRef}>
       <div className="container py-lg-4">
         <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
           <div className="head-title text-center">
