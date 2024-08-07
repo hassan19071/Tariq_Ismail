@@ -38,7 +38,7 @@ const Statistics = () => {
             </ScrollAnimation>
           </div>
           <div className="col-lg-3 col-6 mt-4">
-            <ScrollAnimation animateIn="fadeInUp">
+            <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
               <div
                 className="statistic d-flex flex-lg-row flex-column align-items-center justify-content-center"
                 ref={ref2}
@@ -54,7 +54,7 @@ const Statistics = () => {
             </ScrollAnimation>
           </div>
           <div className="col-lg-3 col-6 mt-4">
-            <ScrollAnimation animateIn="fadeInUp">
+            <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
               <div
                 className="statistic d-flex flex-lg-row flex-column align-items-center justify-content-center"
                 ref={ref3}
@@ -77,7 +77,7 @@ const Statistics = () => {
             </ScrollAnimation>
           </div>
           <div className="col-lg-3 col-6 mt-4">
-            <ScrollAnimation animateIn="fadeInUp">
+            <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
               <div
                 className="statistic d-flex flex-lg-row flex-column align-items-center justify-content-center"
                 ref={ref4}
