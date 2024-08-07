@@ -23,7 +23,7 @@ const Statistics = () => {
       <div className="container py-3">
         <div className="row align-items-center">
           <div className="col-lg-3 col-6 mt-4">
-            <ScrollAnimation animateIn="fadeInUp">
+            <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
               <div
                 className="statistic d-flex flex-lg-row flex-column align-items-center justify-content-center"
                 ref={ref1}
